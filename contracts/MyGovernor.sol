@@ -8,9 +8,11 @@ import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol";
 
 contract MyGovernor is Governor, GovernorSettings, GovernorCountingSimple, GovernorVotes, GovernorVotesQuorumFraction {
+
+    // 5 blocks before voting, 300 blocks for voting
     constructor(IVotes _token)
         Governor("MyGovernor")
-        GovernorSettings(1, 1, 0)
+        GovernorSettings(5, 300, 0)
         GovernorVotes(_token)
         GovernorVotesQuorumFraction(4)
     {}

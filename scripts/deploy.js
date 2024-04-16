@@ -1,6 +1,7 @@
 const { ethers } = require("hardhat");
 
 async function main() {
+  const owner = await ethers.getSigner();
   const transactionCount = await owner.getTransactionCount();
 
   // gets the address of the token before it is deployed
@@ -20,7 +21,7 @@ async function main() {
     `Token deployed to ${token.address}`
   );
 }
-
+  
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
